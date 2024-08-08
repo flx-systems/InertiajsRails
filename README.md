@@ -19,9 +19,9 @@
    ```
 4. Add vue/vite packages
    ```bash
-   yarn add @vitejs/plugin-vue @inertiajs/vue3
+   yarn add @vitejs/plugin-vue @inertiajs/vue3 vue
    ```
-5. Replace the app/frontend/entrypoints/application.js following:
+5. Replace the app/frontend/entrypoints/application.js with the following:
    ```javascript
    import { createApp, h } from 'vue'
    import { createInertiaApp } from '@inertiajs/vue3'
@@ -38,12 +38,18 @@
      },
    })
    ```
-6. Update database connection info
+6. Create "Pages" directory under app/frontend
+
+   All vue folder/pages and layouts go under the Pages directory
+   ```bash
+   inertiaRails> mkdir app/frontend/Pages
+   ```
+7. Update database connection info
 
    `config/database.yml`
 
 
-7. Run Install gems and setup databases
+8. Run Install gems and setup databases
    ```bash
    ./bin/setup
    ```
