@@ -1,6 +1,7 @@
 <script setup>
-import Layout from './Layout.vue'
+import Layout from '../layouts/SiteLayout.vue'
 import { Head } from '@inertiajs/vue3'
+
 
 defineProps({ user: Object })
 </script>

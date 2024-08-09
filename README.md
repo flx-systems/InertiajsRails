@@ -1,15 +1,15 @@
 # InertiaJS on Rails
 
 ### Getting the project started using rails 7
-1. This will skip turbolinks, use a postgresql database and set webpack for vue
+### This will skip turbolinks, use a postgresql database and set webpack for Vue
    ```bash
    rails new inertiaRails -d postgresql --skip-javascript --skip-asset-pipeline
    ```
-2. Add InertiaJS gem to the project
+### Add InertiaJS gem to the project
    ```bash
    bundle add inertia_rails
    ```
-3. Add Vite
+### Add Vite
 
    ```bash
    bundle add vite_rails
@@ -17,18 +17,18 @@
    ```bash 
    bundle exec vite install
    ```
-4. Add vue/vite packages
+### Add Vite, Vue and Quasar packages
    ```bash
-   yarn add @vitejs/plugin-vue @inertiajs/vue3 vue
+   yarn add @vitejs/plugin-vue @inertiajs/vue3 @quasar/vite-plugin @quasar/extras sass vue
    ```
-5. Replace the app/frontend/entrypoints/application.js with the following:
+### Replace the app/frontend/entrypoints/application.js with the following:
    ```javascript
    import { createApp, h } from 'vue'
    import { createInertiaApp } from '@inertiajs/vue3'
 
    createInertiaApp({
      resolve: name => {
-       const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
+       const pages = import.meta.glob('./pages/**/*.vue', { eager: true })
        return pages[`./Pages/${name}.vue`]
      },
      setup({ el, App, props, plugin }) {
@@ -38,20 +38,33 @@
      },
    })
    ```
-6. Create "Pages" directory under app/frontend
+### Create "Pages" directory under app/frontend
 
    All vue folder/pages and layouts go under the Pages directory
    ```bash
-   inertiaRails> mkdir app/frontend/Pages
+   inertiaRails> mkdir app/frontend/pages
    ```
-7. Update database connection info
+### Configure @quasar-vite-plugin 
+[Quasar Vite Plugin Configuration Page](https://quasar.dev/start/vite-plugin)
 
-   `config/database.yml`
+### Update database connection info
 
+   ```
+   config/database.yml
+   ```
 
-8. Run Install gems and setup databases
+### Run Install gems and setup databases
    ```bash
    ./bin/setup
    ```
+## Running the app
 
+### Start the Rails server
+```bash 
+rails s
+```
+### Start the Vite server for javascript
+```bash 
+vite dev
+```
 
