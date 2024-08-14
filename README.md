@@ -1,4 +1,4 @@
-# InertiaJS on Rails
+# InertiaJS on Rails with Vue & Quasar
 
 ### Getting the project started using rails 7
 ### This will skip turbolinks, use a postgresql database and set webpack for Vue
@@ -17,7 +17,7 @@
    ```bash 
    bundle exec vite install
    ```
-### Add Vite, Vue and Quasar packages
+### Add Vite, Vue and Quasar packages - Quasar optional(@quasar/vite-plugin @quasar/extras sass)
    ```bash
    yarn add @vitejs/plugin-vue @inertiajs/vue3 @quasar/vite-plugin @quasar/extras sass vue
    ```
@@ -28,7 +28,7 @@
 
    createInertiaApp({
      resolve: name => {
-       const pages = import.meta.glob('./pages/**/*.vue', { eager: true })
+       const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
        return pages[`./Pages/${name}.vue`]
      },
      setup({ el, App, props, plugin }) {
@@ -42,9 +42,9 @@
 
    All vue folder/pages and layouts go under the Pages directory
    ```bash
-   inertiaRails> mkdir app/frontend/pages
+   inertiaRails> mkdir app/frontend/Pages
    ```
-### Configure @quasar-vite-plugin 
+### (Optional) Configure @quasar-vite-plugin 
 [Quasar Vite Plugin Configuration Page](https://quasar.dev/start/vite-plugin)
 
 ### Update database connection info
