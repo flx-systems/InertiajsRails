@@ -10,6 +10,7 @@
     "@quasar/extras": "^1.16.12",
     "@quasar/vite-plugin": "^1.7.0",
     "@vitejs/plugin-vue": "^5.1.2",
+    "pinia": "^2.2.1",
     "prettier": "^3.3.3",
     "quasar": "^2.16.8",
     "sass": "^1.77.8",

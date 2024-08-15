@@ -1,5 +1,10 @@
 <template>
   <Layout>
+    <div class="q-mt-sm">
+      <Link href="/">
+        <q-icon name="arrow_back" size="sm" color="black" />
+      </Link>
+    </div>
     <div class="q-mt-lg">
       <div class="row">
         <img
@@ -22,7 +27,7 @@
               }}</span>
             </div>
             <div class="col-7">
-              <q-btn unelevated color="amber" class="q-mr-sm"
+              <q-btn unelevated color="amber" @click="addItem" class="q-mr-sm"
                 >Add to Cart
               </q-btn>
               <q-btn unelevated color="orange">Buy Now</q-btn>
@@ -36,8 +41,17 @@
 
 <script setup>
 import Layout from "../../layouts/SiteLayout.vue";
+import { Link } from "@inertiajs/vue3";
+import { useCartStore } from "~/entrypoints/stores/index.js";
+import { toRaw } from "vue";
 
+const cart = useCartStore();
 const props = defineProps({ product: Object });
+
+// Add to cart
+function addItem() {
+  cart.addItem(toRaw(props.product));
+}
 
 // Create our number formatter.
 const formatter = new Intl.NumberFormat("en-US", {
