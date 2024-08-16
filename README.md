@@ -1,5 +1,25 @@
 # InertiaJS on Rails with Vue & Quasar
 
+<!-- TOC -->
+
+* [InertiaJS on Rails with Vue & Quasar](#inertiajs-on-rails-with-vue--quasar)
+    * [Getting the project started using rails 7](#getting-the-project-started-using-rails-7)
+    * [This will skip turbolinks, use a postgresql database and set webpack for Vue](#this-will-skip-turbolinks-use-a-postgresql-database-and-set-webpack-for-vue)
+    * [Add InertiaJS gem to the project](#add-inertiajs-gem-to-the-project)
+    * [Add Vite](#add-vite)
+    * [Add Vite, Vue and Quasar packages - Quasar optional(@quasar/vite-plugin @quasar/extras sass)](#add-vite-vue-and-quasar-packages---quasar-optionalquasarvite-plugin-quasarextras-sass)
+    * [Replace the app/frontend/entrypoints/application.js with the following:](#replace-the-appfrontendentrypointsapplicationjs-with-the-following)
+    * [Create "Pages" directory under app/frontend/entrypoint](#create-pages-directory-under-appfrontendentrypoint)
+    * [(Optional) Configure @quasar-vite-plugin](#optional-configure-quasar-vite-plugin)
+    * [Update database connection info](#update-database-connection-info)
+    * [Run Install gems and setup databases](#run-install-gems-and-setup-databases)
+    * [References](#references)
+    * [Running the app](#running-the-app)
+        * [Start the Rails server](#start-the-rails-server)
+        * [Start the Vite server for javascript](#start-the-vite-server-for-javascript)
+
+<!-- TOC -->
+
 ### Getting the project started using rails 7
 
 ### This will skip turbolinks, use a postgresql database and set webpack for Vue
@@ -72,6 +92,13 @@ All vue folder/pages and layouts go under the Pages directory
    ```bash
    ./bin/setup
    ```
+
+## References
+
+- [vite-ruby](https://vite-ruby.netlify.app/)
+- [@quasar/vite-plugin](https://quasar.dev/start/vite-plugin/)
+- [inertiajs](https://inertiajs.com/)
+- [inertia-rails](https://github.com/inertiajs/inertia-rails)
 
 ## Running the app
 
