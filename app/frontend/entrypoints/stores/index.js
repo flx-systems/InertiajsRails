@@ -12,12 +12,17 @@ export const useCartStore = defineStore("cart", {
   },
   actions: {
     addItem(item) {
+      // Add cart id
+
       this.items.push(item);
       this.itemsTotal = this.itemsTotal + item.price;
     },
-    removeItem(item) {
-      this.items = this.items.filter((item) => item.id !== item.id);
-      this.itemsTotal = this.itemsTotal - item.price;
+    removeItem(itemToRemove) {
+      console.log(itemToRemove);
+      this.items = this.items.filter(
+        (item) => item.cartId !== itemToRemove.cartId,
+      );
+      this.itemsTotal = this.itemsTotal - itemToRemove.price;
     },
   },
 });

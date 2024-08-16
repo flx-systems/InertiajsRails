@@ -30,7 +30,13 @@
               <q-btn unelevated color="amber" @click="addItem" class="q-mr-sm"
                 >Add to Cart
               </q-btn>
-              <q-btn unelevated color="orange">Buy Now</q-btn>
+              <q-btn unelevated color="orange">
+                <Link
+                  href="/store/index"
+                  style="text-decoration: none; color: white"
+                  >Buy Now
+                </Link>
+              </q-btn>
             </div>
           </div>
         </div>
@@ -44,13 +50,21 @@ import Layout from "../../layouts/SiteLayout.vue";
 import { Link } from "@inertiajs/vue3";
 import { useCartStore } from "~/entrypoints/stores/index.js";
 import { toRaw } from "vue";
+import { useQuasar } from "quasar";
 
+const $q = useQuasar();
 const cart = useCartStore();
 const props = defineProps({ product: Object });
 
 // Add to cart
 function addItem() {
-  cart.addItem(toRaw(props.product));
+  cart.addItem(
+    Object.assign(toRaw(props.product), { cartId: self.crypto.randomUUID() }),
+  );
+  $q.notify({
+    message: "Added",
+    color: "positive",
+  });
 }
 
 // Create our number formatter.

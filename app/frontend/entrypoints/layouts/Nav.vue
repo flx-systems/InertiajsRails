@@ -5,10 +5,7 @@
       <Link href="/">Home</Link>
     </div>
     <div class="col-auto">
-      <Link href="/home/show">Featured</Link>
-    </div>
-    <div class="col-auto">
-      <Link href="#">Gadgets</Link>
+      <Link href="/">Featured</Link>
     </div>
   </div>
 </template>

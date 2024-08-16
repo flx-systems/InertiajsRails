@@ -1,6 +1,6 @@
 import { createApp, h } from "vue";
 import { createInertiaApp } from "@inertiajs/vue3";
-import { Quasar } from "quasar";
+import { Quasar, Notify } from "quasar";
 import { createPinia } from "pinia";
 
 // Import icon libraries
@@ -18,7 +18,7 @@ createInertiaApp({
     const pinia = createPinia();
     createApp({ render: () => h(App, props) })
       .use(plugin)
-      .use(Quasar, { plugins: {} })
+      .use(Quasar, { plugins: { Notify } })
       .use(pinia)
       .mount(el);
   },

@@ -4,8 +4,8 @@
       <q-page>
         <div class="float-right q-mt-sm">
           <Link href="/store/index" class="cart-link">
-            <q-icon size="sm" color="black" name="shopping_cart" />
             <span class="cart-count">({{ cartStore.cartItemCount }})</span>
+            <q-icon size="sm" color="black" name="shopping_cart" />
           </Link>
           <Link href="/products">
             <q-icon size="sm" name="settings" color="black" />

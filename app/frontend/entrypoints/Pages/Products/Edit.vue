@@ -1,5 +1,10 @@
 <template>
   <Layout>
+    <div class="q-mt-sm">
+      <Link href="/products">
+        <q-icon name="arrow_back" size="sm" color="black" />
+      </Link>
+    </div>
     <div class="q-pa-md q-mt-lg">
       <div class="text-h2">Edit Product</div>
 
@@ -60,7 +65,7 @@
 
 <script setup>
 import Layout from "~/entrypoints/layouts/SiteLayout.vue";
-import { useForm } from "@inertiajs/vue3";
+import { Link, useForm } from "@inertiajs/vue3";
 
 const props = defineProps({ product: Object });
 

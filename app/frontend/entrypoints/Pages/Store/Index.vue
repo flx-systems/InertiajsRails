@@ -4,16 +4,51 @@
       <div class="row items-center">
         <div class="text-h3 q-pa-lg col">Shopping Cart</div>
         <div class="col-auto text-weight-bold">
-          {{ formatter.format(cartStore.itemsTotal) }}
+          <span class="q-mr-sm">
+            {{ formatter.format(cartStore.itemsTotal) }}
+          </span>
+          <q-btn color="amber" @click="confirm = true">Checkout</q-btn>
         </div>
       </div>
 
-      <q-table
-        title="Cart Details"
-        :rows="rows"
-        :columns="columns"
-        row-key="name"
-      >
+      <q-dialog v-model="confirm" persistent>
+        <q-card class="q-pa-lg">
+          <q-card-section>
+            <div class="text-h4">Order Confirmation</div>
+          </q-card-section>
+          <q-card-section class="row items-center">
+            <q-markup-table bordered separator="cell">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="row in rows">
+                  <td>{{ row.name }}</td>
+                  <td class="">{{ formatter.format(row.price) }}</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr class="">
+                  <td class="text-bold">Total:</td>
+                  <td class="text-bold">
+                    {{ formatter.format(cartStore.itemsTotal) }}
+                  </td>
+                </tr>
+              </tfoot>
+            </q-markup-table>
+          </q-card-section>
+
+          <q-card-actions align="right">
+            <q-btn flat label="Cancel" color="primary" v-close-popup />
+            <q-btn flat label="Confirm Order" color="primary" v-close-popup />
+          </q-card-actions>
+        </q-card>
+      </q-dialog>
+
+      <q-table title="Detail" :rows="rows" :columns="columns" row-key="name">
         <template v-slot:body-cell-description="props">
           <q-td :props="props">
             <div
@@ -50,9 +85,8 @@
 
 <script setup>
 import Layout from "../../layouts/SiteLayout.vue";
-import { onMounted, computed } from "vue";
+import { ref, computed } from "vue";
 import { useCartStore } from "~/entrypoints/stores/index.js";
-import { Link } from "@inertiajs/vue3";
 
 const cartStore = useCartStore();
 const rows = computed(() => cartStore.cartItems);
@@ -82,6 +116,8 @@ const columns = [
     align: "center",
   },
 ];
+
+const confirm = ref(false);
 
 function removeItem(item) {
   cartStore.removeItem(item);
