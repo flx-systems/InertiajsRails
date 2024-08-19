@@ -90,6 +90,8 @@ GEM
       reline (>= 0.3.8)
     dry-cli (1.1.0)
     erubi (1.13.0)
+    faker (3.4.2)
+      i18n (>= 1.8.11, < 2)
     ffi (1.17.0-aarch64-linux-gnu)
     ffi (1.17.0-arm-linux-gnu)
     ffi (1.17.0-arm64-darwin)
@@ -246,6 +248,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  faker (~> 3.4)
   image_processing (>= 1.2)
   inertia_rails (~> 3.2)
   jbuilder
