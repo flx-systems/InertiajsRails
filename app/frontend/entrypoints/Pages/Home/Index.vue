@@ -21,6 +21,9 @@
                   :src="product.image"
                   style="max-width: 250px; max-height: 250px"
                 />
+                <div class="product-name text-center">
+                  {{ product.name }}
+                </div>
               </Link>
             </div>
           </div>
@@ -43,3 +46,29 @@ function showUrl(id) {
   return `/products/${id}`;
 }
 </script>
+
+<style scoped>
+.product-name {
+  color: black;
+}
+
+/* unvisited link */
+a:link {
+  color: black;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: blue;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+</style>

@@ -60,3 +60,5 @@ gem "inertia_rails", "~> 3.2"
 
 gem "vite_rails", "~> 3.0"
 gem "image_processing", ">= 1.2"
+
+gem "faker", "~> 3.4"
