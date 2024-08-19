@@ -20,6 +20,15 @@
 
 <!-- TOC -->
 
+# Overview
+
+Project goals:
+
+- Validate ease of use communicating between rails controller and Vue page
+- Validate Quasar can work in the stack
+- Validate Pinia can be used in the stack
+- Validate vite_rails as a replacement for webpacker
+
 ### Getting the project started using rails 7
 
 ### This will skip turbolinks, use a postgresql database and set webpack for Vue
