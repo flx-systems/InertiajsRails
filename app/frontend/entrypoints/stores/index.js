@@ -18,7 +18,6 @@ export const useCartStore = defineStore("cart", {
       this.itemsTotal = this.itemsTotal + item.price;
     },
     removeItem(itemToRemove) {
-      console.log(itemToRemove);
       this.items = this.items.filter(
         (item) => item.cartId !== itemToRemove.cartId,
       );
